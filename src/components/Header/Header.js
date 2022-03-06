@@ -4,10 +4,10 @@ import { FaBars } from 'react-icons/fa';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { MdNotifications, MdApps } from 'react-icons/md';
 
-export const Header = () => {
+export const Header = ({ handleToggle }) => {
   return (
     <header className='header'>
-      <FaBars className='header__menu' size={26} />
+      <FaBars className='header__menu' size={26} onClick={handleToggle} />
 
       <img src='http://pngimg.com/uploads/youtube/youtube_PNG2.png' alt='logo' className='header__logo' />
 

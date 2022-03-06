@@ -3,9 +3,9 @@ import './_sidebar.scss';
 
 import { MdSubscriptions, MdExitToApp, MdThumbUp, MdHistory, MdLibraryBooks, MdHome, MdSentimentDissatisfied } from 'react-icons/md';
 
-export const SideBar = () => {
+export const SideBar = ({ toggleSidebar, handleToggle }) => {
   return (
-    <ul className='sidebar'>
+    <ul className={toggleSidebar ? 'sidebar open' : 'sidebar'} onClick={() => handleToggle(false)}>
       <li>
         <MdHome size={23} />
         <span>Home</span>
