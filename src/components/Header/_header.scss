@@ -12,6 +12,7 @@
 
   &__menu {
     display: none;
+    cursor: pointer;
   }
 
   &__logo {
@@ -81,10 +82,7 @@
       display: block;
     }
 
-    &__logo {
-      display: none;
-    }
-
+    &__logo,
     &__icons > *:not(img) {
       display: none;
     }

@@ -1,1 +1,13 @@
 @import './reset.scss';
+
+.main_contents {
+  display: flex;
+  height: 90vh;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  padding: 0 20px;
+  overflow: hidden;
+}
