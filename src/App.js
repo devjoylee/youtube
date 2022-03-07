@@ -1,19 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'styles/app.scss';
-import { Header, SideBar } from 'components';
-import { MainPage } from 'pages/mainPage';
+import { Layout } from 'components';
+import { MainPage, LoginPage } from 'pages';
 
 export const App = () => {
-  const [toggleSidebar, setToggleSidebar] = useState(false);
-  const handleToggle = () => setToggleSidebar((value) => !value);
-
   return (
-    <>
-      <Header handleToggle={handleToggle} />
-      <main className='main_contents'>
-        <SideBar toggleSidebar={toggleSidebar} handleToggle={handleToggle} />
-        <MainPage />
-      </main>
-    </>
+    <Layout>
+      <MainPage />
+      <LoginPage />
+    </Layout>
   );
 };
