@@ -1,4 +1,4 @@
-@import './reset.scss';
+@import './reset';
 @import './variables';
 
 .main_contents {
@@ -19,10 +19,10 @@
 }
 
 .login {
-  height: 100vh;
-  display: grid;
-
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 
   &__container {
     background-color: $black-secondary;
@@ -38,9 +38,8 @@
       border: none;
       border-radius: 5px;
       margin-bottom: 1rem;
-      &:focus {
-        outline: none;
-      }
+      background: #fff;
+      cursor: pointer;
     }
   }
 

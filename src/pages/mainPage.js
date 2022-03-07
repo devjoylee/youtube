@@ -6,8 +6,8 @@ export const MainPage = () => {
     <Container>
       <Category />
       <div className='video__container'>
-        {[...new Array(20)].map(() => (
-          <Video />
+        {[...new Array(20)].map((_, i) => (
+          <Video key={i} />
         ))}
       </div>
     </Container>

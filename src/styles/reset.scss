@@ -9,7 +9,8 @@
   box-sizing: border-box;
 }
 html,
-body {
+body,
+body > div {
   height: 100%;
 }
 body {
