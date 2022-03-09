@@ -3,3 +3,7 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOG_OUT = 'LOG_OUT';
 export const LOAD_PROFILE = 'LOAD_PROFILE';
+
+export const MAIN_VIDEOS_SUCCESS = 'MAIN_VIDEOS_SUCCESS';
+export const MAIN_VIDEOS_FAIL = 'MAIN_VIDEOS_FAIL';
+export const MAIN_VIDEOS_REQUEST = 'MAIN_VIDEOS_REQUEST';
