@@ -1,27 +1,61 @@
-import React from 'react';
-import './_video.scss';
+import moment from 'moment';
+import numeral from 'numeral';
+import React, { useEffect, useState } from 'react';
 import { AiFillEye } from 'react-icons/ai';
+import { getData } from 'utils/getData';
 
-export const Video = () => {
+export const Video = ({ video }) => {
+  console.log(video);
+  const {
+    contentDetails: { duration },
+    snippet: {
+      channelId,
+      channelTitle,
+      title,
+      publishedAt,
+      thumbnails: { medium },
+    },
+    statistics: { viewCount },
+  } = video;
+
+  const seconds = moment.duration(duration).asSeconds();
+  const _duration = moment.utc(seconds * 1000).format('mm:ss');
+  const views = numeral(viewCount).format('0.a');
+  const publishedTime = moment(publishedAt).fromNow();
+
+  const [channelIcon, setChannelIcon] = useState(null);
+
+  useEffect(() => {
+    const get_channel_icon = async () => {
+      const {
+        data: { items },
+      } = await getData('/channels', {
+        params: {
+          part: 'snippet',
+          id: channelId,
+        },
+      });
+      setChannelIcon(items[0].snippet.thumbnails.default);
+    };
+    get_channel_icon();
+  }, [channelId]);
+
   return (
     <div className='video'>
       <div className='video__top'>
-        <img
-          src='https://i.ytimg.com/vi/DyvDXY1aAzA/hq720.jpg?sqp=-oaymwEZCNAFEJQDSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBjpnqIpRrltzJ0EcbXRi8N2HtCWQ'
-          alt=''
-        />
-        <span>05:43</span>
+        <img src={medium.url} alt='thumbnail' />
+        <span>{_duration}</span>
       </div>
-      <div className='video__title'>Create app in 5 minutes #made by Chintu</div>
+      <div className='video__title'>{title}</div>
       <div className='video__details'>
         <span>
-          <AiFillEye /> 5m Views •
+          <AiFillEye /> {views} Views •
         </span>
-        <span>5 days ago</span>
+        <span>{publishedTime}</span>
       </div>
       <div className='video__channel'>
-        <img src='https://yt3.ggpht.com/a-/AOh14GixdVjxqi11Md_OCDd3K7SOQEhizq4f3EI_0g=s68-c-k-c0x00ffffff-no-rj-mo' alt='' />
-        <p>Rainbow Hat Jr</p>
+        <img src={channelIcon?.url} alt={channelTitle} />
+        <p>{channelTitle}</p>
       </div>
     </div>
   );

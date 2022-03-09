@@ -1,6 +1,11 @@
 @import 'styles/variables.scss';
 @import 'styles/mixins.scss';
 
+.video-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .video {
   margin-bottom: 1rem;
   padding: 0.7rem;
