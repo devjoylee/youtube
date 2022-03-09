@@ -1,9 +1,15 @@
 import React from 'react';
 import './_sidebar.scss';
-
 import { MdSubscriptions, MdExitToApp, MdThumbUp, MdHistory, MdLibraryBooks, MdHome, MdSentimentDissatisfied } from 'react-icons/md';
+import { useDispatch } from 'react-redux';
+import { logout } from 'redux/actions/auth.action';
 
 export const SideBar = ({ toggleSidebar, handleToggle }) => {
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <ul className={toggleSidebar ? 'sidebar open' : 'sidebar'} onClick={() => handleToggle(false)}>
       <li>
@@ -30,7 +36,7 @@ export const SideBar = ({ toggleSidebar, handleToggle }) => {
         <MdSentimentDissatisfied size={23} />
         <span>I don't Know</span>
       </li>
-      <li className='logout'>
+      <li className='logout' onClick={handleLogout}>
         <MdExitToApp size={23} />
         <span>Log Out</span>
       </li>

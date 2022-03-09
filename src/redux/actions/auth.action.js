@@ -1,6 +1,6 @@
 import firebase from 'firebase/app';
 import auth from '../../firebase';
-import { LOAD_PROFILE, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS } from './types';
+import { LOAD_PROFILE, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOG_OUT } from './types';
 
 export const login = () => async (dispatch) => {
   try {
@@ -10,13 +10,15 @@ export const login = () => async (dispatch) => {
 
     const provider = new firebase.auth.GoogleAuthProvider();
     const res = await auth.signInWithPopup(provider);
-    console.log(res);
 
     const accessToken = res.credential.accessToken;
     const profile = {
       name: res.additionalUserInfo.profile.name,
       photoURL: res.additionalUserInfo.profile.picture,
     };
+
+    sessionStorage.setItem('youtube-token', accessToken);
+    sessionStorage.setItem('youtube-user', JSON.stringify(profile));
 
     dispatch({
       type: LOGIN_SUCCESS,
@@ -34,4 +36,14 @@ export const login = () => async (dispatch) => {
       payload: error.message,
     });
   }
+};
+
+export const logout = () => async (dispatch) => {
+  await auth.signOut();
+  dispatch({
+    type: LOG_OUT,
+  });
+
+  sessionStorage.removeItem('youtube-token');
+  sessionStorage.removeItem('youtube-user');
 };

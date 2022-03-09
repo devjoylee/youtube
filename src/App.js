@@ -1,18 +1,27 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import 'styles/app.scss';
 import { Layout } from 'components';
 import { MainPage, LoginPage } from 'pages';
+import { useSelector } from 'react-redux';
 
 export const App = () => {
+  const { accessToken, loading } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+
+  // user 정보 없으면 login 화면 띄우기
+  useEffect(() => {
+    if (!loading && !accessToken) {
+      navigate('/auth');
+    }
+  }, [accessToken, loading, navigate]);
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route index element={<MainPage />} />
-        </Route>
-        <Route path='/auth' element={<LoginPage />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<MainPage />} />
+      </Route>
+      <Route path='/auth' element={<LoginPage />} />
+    </Routes>
   );
 };

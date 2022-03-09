@@ -1,8 +1,11 @@
-import { LOAD_PROFILE, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS } from 'redux/actions/types';
+import { LOAD_PROFILE, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOG_OUT } from 'redux/actions/types';
+
+const savedToken = sessionStorage.getItem('youtube-token');
+const savedUser = sessionStorage.getItem('youtube-user');
 
 const initialState = {
-  accessToken: null,
-  user: null,
+  accessToken: savedToken ? savedToken : null,
+  user: savedUser ? JSON.parse(savedUser) : null,
   loading: false,
 };
 
@@ -31,6 +34,12 @@ export const authReducer = (state = initialState, action) => {
       return {
         ...state,
         user: payload,
+      };
+    case LOG_OUT:
+      return {
+        ...state,
+        accessToken: null,
+        user: null,
       };
     default:
       return state;
