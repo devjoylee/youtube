@@ -4,6 +4,7 @@ const initialState = {
   videos: [],
   loading: false,
   nextPageToken: null,
+  activeCategory: 'All',
 };
 
 export const mainVideoReducer = (state = initialState, action) => {
@@ -16,6 +17,7 @@ export const mainVideoReducer = (state = initialState, action) => {
         videos: payload.videos,
         loading: false,
         nextPageToken: payload.nextPageToken,
+        activeCategory: payload.category,
       };
     case MAIN_VIDEOS_FAIL:
       return {

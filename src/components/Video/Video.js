@@ -5,9 +5,8 @@ import { AiFillEye } from 'react-icons/ai';
 import { getData } from 'utils/getData';
 
 export const Video = ({ video }) => {
-  console.log(video);
   const {
-    contentDetails: { duration },
+    id,
     snippet: {
       channelId,
       channelTitle,
@@ -15,15 +14,34 @@ export const Video = ({ video }) => {
       publishedAt,
       thumbnails: { medium },
     },
-    statistics: { viewCount },
   } = video;
+
+  const [views, setViews] = useState(null);
+  const [duration, setDuration] = useState(null);
+  const [channelIcon, setChannelIcon] = useState(null);
 
   const seconds = moment.duration(duration).asSeconds();
   const _duration = moment.utc(seconds * 1000).format('mm:ss');
-  const views = numeral(viewCount).format('0.a');
+  const _views = numeral(views).format('0.a');
   const publishedTime = moment(publishedAt).fromNow();
 
-  const [channelIcon, setChannelIcon] = useState(null);
+  const videoId = id?.videoId || id;
+
+  useEffect(() => {
+    const get_video_details = async () => {
+      const {
+        data: { items },
+      } = await getData('/videos', {
+        params: {
+          part: 'contentDetails,statistics',
+          id: videoId,
+        },
+      });
+      setDuration(items[0].contentDetails.duration);
+      setViews(items[0].statistics.viewCount);
+    };
+    get_video_details();
+  }, [videoId]);
 
   useEffect(() => {
     const get_channel_icon = async () => {
@@ -49,7 +67,7 @@ export const Video = ({ video }) => {
       <div className='video__title'>{title}</div>
       <div className='video__details'>
         <span>
-          <AiFillEye /> {views} Views •
+          <AiFillEye /> {_views} Views •
         </span>
         <span>{publishedTime}</span>
       </div>
