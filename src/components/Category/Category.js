@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getVideosByCategory } from 'redux/actions/video.action';
+import { getPopularVideos, getVideosByCategory } from 'redux/actions/video.action';
 import './_category.scss';
 
 const keywords = [
@@ -30,7 +30,11 @@ export const Category = () => {
 
   const handleClick = (value) => {
     setActiveElement(value);
-    dispatch(getVideosByCategory(value));
+    if (value === 'All') {
+      dispatch(getPopularVideos());
+    } else {
+      dispatch(getVideosByCategory(value));
+    }
   };
 
   return (

@@ -1,7 +1,7 @@
 import { getData } from 'utils/getData';
 import { MAIN_VIDEOS_FAIL, MAIN_VIDEOS_REQUEST, MAIN_VIDEOS_SUCCESS } from './types';
 
-export const getPopularVideos = () => async (dispatch) => {
+export const getPopularVideos = () => async (dispatch, getState) => {
   try {
     dispatch({
       type: MAIN_VIDEOS_REQUEST,
@@ -12,7 +12,7 @@ export const getPopularVideos = () => async (dispatch) => {
         part: 'snippet,contentDetails,statistics',
         chart: 'mostPopular',
         maxResults: 20,
-        pageToken: '',
+        pageToken: getState().mainVideo.nextPageToken,
       },
     });
 
