@@ -64,3 +64,15 @@
     }
   }
 }
+
+@include responsive('medium') {
+  .video {
+    flex-basis: 33.33%;
+  }
+}
+
+@include responsive('small') {
+  .video {
+    flex-basis: 100%;
+  }
+}

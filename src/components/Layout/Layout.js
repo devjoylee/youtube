@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Header, SideBar } from 'components';
+import { Header, SideBar } from 'components';
 import { Outlet } from 'react-router-dom';
 
 export const Layout = () => {
@@ -11,9 +11,7 @@ export const Layout = () => {
       <Header handleToggle={handleToggle} />
       <main className='main_contents'>
         <SideBar toggleSidebar={toggleSidebar} handleToggle={handleToggle} />
-        <Container>
-          <Outlet />
-        </Container>
+        <Outlet />
       </main>
     </>
   );
