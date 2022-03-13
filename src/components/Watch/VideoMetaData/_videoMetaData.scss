@@ -1,0 +1,81 @@
+@import 'styles/variables.scss';
+
+.metadata {
+  &__top {
+    h3 {
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+    .info_bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        font-size: 14px;
+      }
+    }
+    .like_btns {
+      display: flex;
+      li {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        cursor: pointer;
+        & + li {
+          margin-left: 13px;
+        }
+        svg {
+          margin-right: 2px;
+        }
+      }
+    }
+  }
+
+  &__channel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0.2px solid $border-color;
+    border-bottom: 0.2px solid $border-color;
+    padding: 20px 0;
+    margin: 15px 0;
+
+    .channel_info {
+      display: flex;
+      align-items: center;
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 14px;
+      }
+      p + p {
+        margin-top: 3px;
+      }
+    }
+    .subscribe_btn {
+      padding: 7px;
+      font-size: 14px;
+      background-color: red;
+      color: #fff;
+      border-radius: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+    white-space: pre-line;
+    border-bottom: 0.2px solid $border-color;
+    .show_more {
+      text-transform: uppercase;
+      display: block;
+      margin: 15px 0;
+      color: #fff;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+}
