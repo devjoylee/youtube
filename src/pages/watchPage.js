@@ -1,4 +1,4 @@
-import { Container, VideoIframe, VideoMetaData } from 'components';
+import { Container, VideoIframe, VideoMetaData, CommentList, SideVideoList } from 'components';
 import React from 'react';
 
 export const WatchPage = () => {
@@ -7,13 +7,9 @@ export const WatchPage = () => {
       <div className='watch_contents'>
         <VideoIframe />
         <VideoMetaData />
-        <p>comments</p>
+        <CommentList />
       </div>
-      <ul className='side_videos'>
-        {[...Array(10)].map((_, i) => (
-          <li key={i}>related video</li>
-        ))}
-      </ul>
+      <SideVideoList />
     </Container>
   );
 };

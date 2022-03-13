@@ -1,6 +1,8 @@
 @import 'styles/variables.scss';
+@import 'styles/mixins.scss';
 
 .metadata {
+  margin-bottom: 15px;
   &__top {
     h3 {
       font-size: 18px;
@@ -44,9 +46,7 @@
       display: flex;
       align-items: center;
       img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
+        @include circle-img(50px);
         margin-right: 14px;
       }
       p + p {

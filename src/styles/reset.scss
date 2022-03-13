@@ -54,4 +54,8 @@ textarea {
   background: none;
   line-height: 1;
   font: inherit;
+  &:focus {
+    outline: none;
+    border: none;
+  }
 }

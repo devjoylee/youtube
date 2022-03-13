@@ -51,10 +51,7 @@
     margin: 0.5rem 0;
 
     img {
-      width: 36px;
-      height: 36px;
-
-      border-radius: 50%;
+      @include circle-img(36px);
       margin-right: 0.5rem;
       cursor: pointer;
     }

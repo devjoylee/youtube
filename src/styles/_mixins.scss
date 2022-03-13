@@ -16,3 +16,9 @@
   -webkit-line-clamp: $number;
   -webkit-box-orient: vertical;
 }
+
+@mixin circle-img($px) {
+  width: $px;
+  height: $px;
+  border-radius: 50%;
+}

@@ -8,3 +8,5 @@ export { Container } from './Container';
 // watch page
 export { VideoIframe } from './Watch/VideoIframe/VideoIframe';
 export { VideoMetaData } from './Watch/VideoMetaData/VideoMetaData';
+export { CommentList } from './Watch/Comment/CommentList';
+export { SideVideoList } from './Watch/SideVideo/SideVideoList';

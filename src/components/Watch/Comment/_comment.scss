@@ -1,0 +1,56 @@
+@import 'styles/mixins.scss';
+
+.comments {
+  &__total {
+    margin-bottom: 20px;
+  }
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    img {
+      @include circle-img(50px);
+      margin-right: 15px;
+    }
+    form {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      input {
+        flex: 1;
+        border-bottom: 2px solid #353946;
+        color: #fff;
+        padding: 0 6px;
+      }
+      button {
+        background-color: #353946;
+        color: #fff;
+        letter-spacing: 0.5px;
+        padding: 0 10px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  padding: 10px 10px;
+  & + li {
+    border-top: 2px solid #353946;
+  }
+  img {
+    @include circle-img(50px);
+    margin-right: 20px;
+  }
+  &__body {
+    overflow: hidden;
+    flex: 1;
+    .user {
+      color: #fff;
+      margin-bottom: 7px;
+    }
+  }
+}
