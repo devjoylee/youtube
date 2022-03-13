@@ -44,3 +44,23 @@
     object-fit: contain;
   }
 }
+
+.watch_page {
+  display: flex;
+  justify-content: space-between;
+
+  .watch_contents {
+    flex-basis: 70%;
+
+    .iframe_container {
+      height: 60vh;
+      background-color: #353946;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .side_videos {
+    flex-basis: 30%;
+  }
+}
