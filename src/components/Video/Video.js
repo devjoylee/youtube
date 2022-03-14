@@ -1,6 +1,7 @@
 import moment from 'moment';
 import numeral from 'numeral';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AiFillEye } from 'react-icons/ai';
 import { getData } from 'utils/getData';
 
@@ -26,6 +27,12 @@ export const Video = ({ video }) => {
   const publishedTime = moment(publishedAt).fromNow();
 
   const videoId = id?.videoId || id;
+
+  const navigate = useNavigate();
+
+  const handleVideoClick = () => {
+    navigate(`/watch/${videoId}`);
+  };
 
   useEffect(() => {
     const get_video_details = async () => {
@@ -59,7 +66,7 @@ export const Video = ({ video }) => {
   }, [channelId]);
 
   return (
-    <div className='video'>
+    <div className='video' onClick={handleVideoClick}>
       <div className='video__top'>
         <img src={medium.url} alt='thumbnail' />
         <span>{_duration}</span>
