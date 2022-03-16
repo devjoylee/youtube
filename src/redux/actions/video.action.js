@@ -1,5 +1,12 @@
 import { getData } from 'utils/getData';
-import { MAIN_VIDEOS_FAIL, MAIN_VIDEOS_REQUEST, MAIN_VIDEOS_SUCCESS } from './types';
+import {
+  MAIN_VIDEOS_FAIL,
+  MAIN_VIDEOS_REQUEST,
+  MAIN_VIDEOS_SUCCESS,
+  SELECTED_VIDEO_FAIL,
+  SELECTED_VIDEO_REQUEST,
+  SELECTED_VIDEO_SUCCESS,
+} from './types';
 
 export const getPopularVideos = () => async (dispatch, getState) => {
   try {
@@ -62,6 +69,32 @@ export const getVideosByCategory = (keyword) => async (dispatch, getState) => {
     console.log(error.message);
     dispatch({
       type: MAIN_VIDEOS_FAIL,
+      payload: error.message,
+    });
+  }
+};
+
+export const getVideoById = (id) => async (dispatch) => {
+  try {
+    dispatch({
+      type: SELECTED_VIDEO_REQUEST,
+    });
+
+    const { data } = await getData('/videos', {
+      params: {
+        part: 'snippet, statistics',
+        id: id,
+      },
+    });
+
+    dispatch({
+      type: SELECTED_VIDEO_SUCCESS,
+      payload: data.items[0],
+    });
+  } catch (error) {
+    console.log(error.message);
+    dispatch({
+      type: SELECTED_VIDEO_FAIL,
       payload: error.message,
     });
   }
