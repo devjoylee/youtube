@@ -2,12 +2,12 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyA-QsAnaeZ_EFaj3omY2KjelFsYdnW9Fjw',
-  authDomain: 'clone-4f990.firebaseapp.com',
-  projectId: 'clone-4f990',
-  storageBucket: 'clone-4f990.appspot.com',
-  messagingSenderId: '412615046248',
-  appId: '1:412615046248:web:cd5f3b2adc8e519cd3f7dd',
+  apiKey: 'AIzaSyB2OYF4YmThZ3id4IZQ1q2_CEAtp6Wpoo4',
+  authDomain: 'utube-page.firebaseapp.com',
+  projectId: 'utube-page',
+  storageBucket: 'utube-page.appspot.com',
+  messagingSenderId: '579883225237',
+  appId: '1:579883225237:web:c8583ac51269e8f78f8b9c',
 };
 
 firebase.initializeApp(firebaseConfig);
