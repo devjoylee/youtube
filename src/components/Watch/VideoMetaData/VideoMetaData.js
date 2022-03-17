@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './_videoMetaData.scss';
 import moment from 'moment';
 import numeral from 'numeral';
 import { MdThumbUp, MdThumbDown } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import { getChannelInfo } from 'redux/actions/channel.action';
 
 export const VideoMetaData = ({ id, video: { snippet, statistics } }) => {
+  const dispatch = useDispatch();
+  // video Info
   const { channelId, channelTitle, description, title, publishedAt } = snippet;
   const { viewCount, likeCount, dislikeCount } = statistics;
+  const _viewCount = numeral(viewCount).format('0.a');
+  const _publishedAt = moment(publishedAt).fromNow();
+  const likes = numeral(likeCount).format('0.a');
+  const dislikes = numeral(dislikeCount).format('0.a');
+
+  // channel Info
+  const { snippet: channelSnippet, statistics: channelStatistics } = useSelector((state) => state.channelInfo.channel);
+  const channelIcon = channelSnippet?.thumbnails?.default?.url;
+  const subscribeCount = numeral(channelStatistics?.subscriberCount).format('0.a');
+
+  useEffect(() => {
+    dispatch(getChannelInfo(channelId));
+  }, [dispatch, channelId]);
 
   return (
     <div className='metadata'>
@@ -14,14 +31,14 @@ export const VideoMetaData = ({ id, video: { snippet, statistics } }) => {
         <h3>{title}</h3>
         <div className='info_bar'>
           <span>
-            {numeral(viewCount).format('0.a')} Views • {moment(publishedAt).fromNow()}
+            {_viewCount} Views • {_publishedAt}
           </span>
           <ul className='like_btns'>
             <li className='like'>
-              <MdThumbUp size={26} /> {numeral(likeCount).format('0.a')}
+              <MdThumbUp size={26} /> {likes}
             </li>
             <li className='dislike'>
-              <MdThumbDown size={26} /> {numeral(dislikeCount).format('0.a')}
+              <MdThumbDown size={26} /> {dislikes}
             </li>
           </ul>
         </div>
@@ -29,10 +46,10 @@ export const VideoMetaData = ({ id, video: { snippet, statistics } }) => {
 
       <div className='metadata__channel'>
         <div className='channel_info'>
-          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUW0u5Eiiy3oM6wcpeEE6sXCzlh8G-tX1_Iw&usqp=CAU' alt='' />
+          <img src={channelIcon} alt='' />
           <div className='channel_name'>
             <p>{channelTitle}</p>
-            <p> {numeral(10000).format('0.a')} Subscribers</p>
+            <p> {subscribeCount} Subscribers</p>
           </div>
         </div>
         <button className='subscribe_btn'>Subscribe</button>
