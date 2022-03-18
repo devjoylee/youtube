@@ -9,7 +9,7 @@ export const Header = ({ handleToggle }) => {
     <header className='header'>
       <FaBars className='header__menu' size={26} onClick={handleToggle} />
 
-      <img src='http://pngimg.com/uploads/youtube/youtube_PNG2.png' alt='logo' className='header__logo' />
+      <img src='https://pngimg.com/uploads/youtube/youtube_PNG2.png' alt='logo' className='header__logo' />
 
       <form>
         <input type='text' placeholder='Search' />
