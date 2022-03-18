@@ -54,14 +54,18 @@
       }
     }
     .subscribe_btn {
-      padding: 7px;
+      width: 100px;
+      padding: 7px 0;
       font-size: 14px;
-      background-color: red;
+      background-color: $btn-color;
       color: #fff;
       border-radius: 0;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       cursor: pointer;
+      &.subscribed {
+        background-color: #aaa;
+      }
     }
   }
 

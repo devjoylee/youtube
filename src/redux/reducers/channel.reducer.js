@@ -1,8 +1,9 @@
-import { CHANNEL_INFO_FAIL, CHANNEL_INFO_REQUEST, CHANNEL_INFO_SUCCESS } from 'redux/actions/types';
+import { CHANNEL_INFO_FAIL, CHANNEL_INFO_REQUEST, CHANNEL_INFO_SUCCESS, SET_SUBSCRIPTION_STATUS } from 'redux/actions/types';
 
 const initialState = {
   channel: {},
   loading: false,
+  isSubscribed: false,
 };
 
 export const channelReducer = (state = initialState, action) => {
@@ -26,6 +27,11 @@ export const channelReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
+      };
+    case SET_SUBSCRIPTION_STATUS:
+      return {
+        ...state,
+        isSubscribed: payload,
       };
     default:
       return state;

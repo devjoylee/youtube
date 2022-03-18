@@ -4,7 +4,7 @@ import moment from 'moment';
 import numeral from 'numeral';
 import { MdThumbUp, MdThumbDown } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
-import { getChannelInfo } from 'redux/actions/channel.action';
+import { subscriptionStatus, getChannelInfo } from 'redux/actions/channel.action';
 
 export const VideoMetaData = ({ id, video: { snippet, statistics } }) => {
   const dispatch = useDispatch();
@@ -21,8 +21,14 @@ export const VideoMetaData = ({ id, video: { snippet, statistics } }) => {
   const channelIcon = channelSnippet?.thumbnails?.default?.url;
   const subscribeCount = numeral(channelStatistics?.subscriberCount).format('0.a');
 
+  // subscription Status
+  const isSubscribed = useSelector((state) => state.channelInfo.isSubscribed);
+
+  console.log(isSubscribed);
+
   useEffect(() => {
     dispatch(getChannelInfo(channelId));
+    dispatch(subscriptionStatus(channelId));
   }, [dispatch, channelId]);
 
   return (
@@ -52,7 +58,7 @@ export const VideoMetaData = ({ id, video: { snippet, statistics } }) => {
             <p> {subscribeCount} Subscribers</p>
           </div>
         </div>
-        <button className='subscribe_btn'>Subscribe</button>
+        <button className={`subscribe_btn ${isSubscribed && 'subscribed'}`}>{isSubscribed ? 'Subscribed' : 'Subscribe'}</button>
       </div>
       <div className='metadata__description'>
         {description}
