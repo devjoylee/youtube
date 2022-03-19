@@ -1,12 +1,12 @@
 @import 'styles/mixins.scss';
 @import 'styles/variables.scss';
 
-.side_video_list {
+.related_video_list {
   margin-left: 20px;
   flex-basis: 30%;
 }
 
-.side_video {
+.related_video {
   display: flex;
   cursor: pointer;
   padding: 15px 0;

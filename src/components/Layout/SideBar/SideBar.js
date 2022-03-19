@@ -2,7 +2,7 @@ import React from 'react';
 import './_sidebar.scss';
 import { MdSubscriptions, MdExitToApp, MdThumbUp, MdHistory, MdLibraryBooks, MdHome, MdSentimentDissatisfied } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
-import { logout } from 'redux/actions/auth.action';
+import { logout } from 'redux/actions';
 
 export const SideBar = ({ toggleSidebar, handleToggle }) => {
   const dispatch = useDispatch();

@@ -2,14 +2,14 @@ import React from 'react';
 import moment from 'moment';
 import numeral from 'numeral';
 
-export const SideVideo = () => {
+export const RelatedVideo = () => {
   return (
-    <li className='side_video'>
-      <div className='side_video__thumbnail'>
+    <li className='related_video'>
+      <div className='related_video__thumbnail'>
         <img src='https://dailyblogger.com/wp-content/uploads/2019/02/Best_YouTube_Thumbnail_Tool.png' alt='' />
         <span className='duration'>03:10</span>
       </div>
-      <div className='side_video__info'>
+      <div className='related_video__info'>
         <p className='title'>Be ad full stack developer in a month</p>
         <p className='channel'>Joy Lee</p>
         <p className='details'>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addComment, getCommentsById } from 'redux/actions/comment.action';
+import { addComment, getCommentsById } from 'redux/actions';
 import { Comment } from './Comment';
 import './_comment.scss';
 

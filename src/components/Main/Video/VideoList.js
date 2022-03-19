@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Video } from './Video';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPopularVideos, getVideosByCategory } from 'redux/actions/video.action';
+import { getPopularVideos, getVideosByCategory } from 'redux/actions';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import './_video.scss';
 

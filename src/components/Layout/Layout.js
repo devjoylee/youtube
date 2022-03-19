@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Header, SideBar } from 'components';
 import { Outlet } from 'react-router-dom';
+import { Header } from './Header/Header';
+import { SideBar } from './SideBar/SideBar';
 
 export const Layout = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);

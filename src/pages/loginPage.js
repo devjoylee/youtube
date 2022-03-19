@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { login } from 'redux/actions/auth.action';
+import { login } from 'redux/actions';
 
 export const LoginPage = () => {
   const dispatch = useDispatch();

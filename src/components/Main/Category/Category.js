@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getPopularVideos, getVideosByCategory } from 'redux/actions/video.action';
+import { getPopularVideos, getVideosByCategory } from 'redux/actions';
 import './_category.scss';
 
 const keywords = [
