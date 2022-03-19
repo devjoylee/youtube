@@ -18,7 +18,11 @@ export const WatchPage = () => {
     <Container className='watch_page'>
       <div className='watch_contents'>
         <VideoIframe id={id} video={video} />
-        {video !== null && !loading ? <VideoMetaData id={id} video={video} /> : <h3>Loading...</h3>}
+        {video !== null && !loading ? (
+          <VideoMetaData id={id} video={video} />
+        ) : (
+          <h3>Loading...</h3>
+        )}
         <CommentList videoId={id} video={video} />
       </div>
       <RelatedVideoList />

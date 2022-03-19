@@ -10,7 +10,7 @@ export const Layout = () => {
   return (
     <>
       <Header handleToggle={handleToggle} />
-      <main className='main_contents'>
+      <main className='page_contents'>
         <SideBar toggleSidebar={toggleSidebar} handleToggle={handleToggle} />
         <Outlet />
       </main>
