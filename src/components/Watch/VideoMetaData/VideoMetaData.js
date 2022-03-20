@@ -17,7 +17,9 @@ export const VideoMetaData = ({ id, video: { snippet, statistics } }) => {
   const dislikes = numeral(dislikeCount).format('0.a');
 
   // channel Info
-  const { snippet: channelSnippet, statistics: channelStatistics } = useSelector((state) => state.channelInfo.channel);
+  const { snippet: channelSnippet, statistics: channelStatistics } = useSelector(
+    (state) => state.channelInfo.channel
+  );
   const channelIcon = channelSnippet?.thumbnails?.default?.url;
   const subscribeCount = numeral(channelStatistics?.subscriberCount).format('0.a');
 
@@ -56,7 +58,9 @@ export const VideoMetaData = ({ id, video: { snippet, statistics } }) => {
             <p> {subscribeCount} Subscribers</p>
           </div>
         </div>
-        <button className={`subscribe_btn ${isSubscribed && 'subscribed'}`}>{isSubscribed ? 'Subscribed' : 'Subscribe'}</button>
+        <button className={`subscribe_btn ${isSubscribed && 'subscribed'}`}>
+          {isSubscribed ? 'Subscribed' : 'Subscribe'}
+        </button>
       </div>
       <div className='metadata__description'>
         {description}
