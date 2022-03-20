@@ -25,7 +25,7 @@ export const WatchPage = () => {
         )}
         <CommentList videoId={id} video={video} />
       </div>
-      <RelatedVideoList />
+      <RelatedVideoList id={id} />
     </Container>
   );
 };

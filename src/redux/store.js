@@ -1,7 +1,14 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import { authReducer, commentReducer, channelReducer, mainVideoReducer, watchVideoReducer } from './reducers';
+import {
+  authReducer,
+  commentReducer,
+  channelReducer,
+  mainVideoReducer,
+  watchVideoReducer,
+  relatedVideoReducer,
+} from './reducers';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -9,6 +16,7 @@ const rootReducer = combineReducers({
   watchVideo: watchVideoReducer,
   channelInfo: channelReducer,
   commentList: commentReducer,
+  relatedVideo: relatedVideoReducer,
 });
 
 const store = createStore(rootReducer, {}, composeWithDevTools(applyMiddleware(thunk)));

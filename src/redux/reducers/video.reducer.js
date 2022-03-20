@@ -2,6 +2,9 @@ import {
   MAIN_VIDEOS_FAIL,
   MAIN_VIDEOS_REQUEST,
   MAIN_VIDEOS_SUCCESS,
+  RELATED_VIDEO_FAIL,
+  RELATED_VIDEO_REQUEST,
+  RELATED_VIDEO_SUCCESS,
   SELECTED_VIDEO_FAIL,
   SELECTED_VIDEO_REQUEST,
   SELECTED_VIDEO_SUCCESS,
@@ -19,6 +22,11 @@ const watchInitialState = {
   loading: false,
 };
 
+const relatedInitialState = {
+  videos: [],
+  loading: false,
+};
+
 export const mainVideoReducer = (state = mainInitialState, action) => {
   const { type, payload } = action;
 
@@ -26,7 +34,10 @@ export const mainVideoReducer = (state = mainInitialState, action) => {
     case MAIN_VIDEOS_SUCCESS:
       return {
         ...state,
-        videos: state.activeCategory === payload.category ? [...state.videos, ...payload.videos] : payload.videos,
+        videos:
+          state.activeCategory === payload.category
+            ? [...state.videos, ...payload.videos]
+            : payload.videos,
         loading: false,
         nextPageToken: payload.nextPageToken,
         activeCategory: payload.category,
@@ -65,6 +76,31 @@ export const watchVideoReducer = (state = watchInitialState, action) => {
         error: payload.error,
       };
     case SELECTED_VIDEO_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    default:
+      return state;
+  }
+};
+
+export const relatedVideoReducer = (state = relatedInitialState, action) => {
+  const { type, payload } = action;
+  switch (type) {
+    case RELATED_VIDEO_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        videos: payload,
+      };
+    case RELATED_VIDEO_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: payload,
+      };
+    case RELATED_VIDEO_REQUEST:
       return {
         ...state,
         loading: true,
