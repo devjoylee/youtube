@@ -1,14 +1,11 @@
 import React from 'react';
-import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
 import { useReqVideo } from 'hooks';
+import { getVideoInfo } from 'utils/getVideoInfo';
 
 export const RelatedVideo = ({ video }) => {
-  const { channelTitle, title, publishedAt, thumbnails } = video.snippet;
+  const { title, channelTitle, thumbnail, publishedDay } = getVideoInfo(video);
   const { videoId, videoDuration, videoViews } = useReqVideo(video);
-
-  const publishedTime = moment(publishedAt).fromNow();
-  const thumbnail = thumbnails.default.url;
 
   const navigate = useNavigate();
 
@@ -26,7 +23,7 @@ export const RelatedVideo = ({ video }) => {
         <p className='title'>{title}</p>
         <p className='channel'>{channelTitle}</p>
         <p className='details'>
-          {videoViews} Views • {publishedTime}
+          {videoViews} Views • {publishedDay}
         </p>
       </div>
     </li>

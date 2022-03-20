@@ -1,16 +1,13 @@
-import moment from 'moment';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiFillEye } from 'react-icons/ai';
 import { useReqChannel, useReqVideo } from 'hooks';
+import { getVideoInfo } from 'utils/getVideoInfo';
 
 export const Video = ({ video }) => {
-  const { channelId, channelTitle, title, publishedAt, thumbnails } = video.snippet;
+  const { title, channelTitle, thumbnail, publishedDay, channelId } = getVideoInfo(video);
   const { videoId, videoDuration, videoViews } = useReqVideo(video);
   const { channelIcon } = useReqChannel(channelId);
-
-  const publishedTime = moment(publishedAt).fromNow();
-  const thumbnail = thumbnails.medium.url;
 
   const navigate = useNavigate();
 
@@ -29,7 +26,7 @@ export const Video = ({ video }) => {
         <span>
           <AiFillEye /> {videoViews} Views •
         </span>
-        <span>{publishedTime}</span>
+        <span>{publishedDay}</span>
       </div>
       <div className='video__channel'>
         <img src={channelIcon?.url} alt={channelTitle} />

@@ -1,27 +1,21 @@
 import React, { useEffect } from 'react';
 import './_videoMetaData.scss';
-import moment from 'moment';
 import numeral from 'numeral';
 import { MdThumbUp, MdThumbDown } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { subscriptionStatus, getChannelInfo } from 'redux/actions';
+import { getVideoInfo } from 'utils/getVideoInfo';
 
-export const VideoMetaData = ({ id, video: { snippet, statistics } }) => {
+export const VideoMetaData = ({ id, video }) => {
   const dispatch = useDispatch();
   // video Info
-  const { channelId, channelTitle, description, title, publishedAt } = snippet;
-  const { viewCount, likeCount, dislikeCount } = statistics;
-  const _viewCount = numeral(viewCount).format('0.a');
-  const _publishedAt = moment(publishedAt).fromNow();
-  const likes = numeral(likeCount).format('0.a');
-  const dislikes = numeral(dislikeCount).format('0.a');
+  const { title, channelTitle, description, publishedDay, channelId, views, likes, dislikes } =
+    getVideoInfo(video);
 
   // channel Info
-  const { snippet: channelSnippet, statistics: channelStatistics } = useSelector(
-    (state) => state.channelInfo.channel
-  );
-  const channelIcon = channelSnippet?.thumbnails?.default?.url;
-  const subscribeCount = numeral(channelStatistics?.subscriberCount).format('0.a');
+  const { snippet, statistics } = useSelector((state) => state.channelInfo.channel);
+  const channelIcon = snippet?.thumbnails?.default?.url;
+  const subscribeCount = numeral(statistics?.subscriberCount).format('0.a');
 
   // subscription Status
   const isSubscribed = useSelector((state) => state.channelInfo.isSubscribed);
@@ -37,7 +31,7 @@ export const VideoMetaData = ({ id, video: { snippet, statistics } }) => {
         <h3>{title}</h3>
         <div className='info_bar'>
           <span>
-            {_viewCount} Views • {_publishedAt}
+            {views} Views • {publishedDay}
           </span>
           <ul className='like_btns'>
             <li className='like'>
