@@ -5,25 +5,27 @@ import {
   RELATED_VIDEO_FAIL,
   RELATED_VIDEO_REQUEST,
   RELATED_VIDEO_SUCCESS,
+  SEARCHED_VIDEO_FAIL,
+  SEARCHED_VIDEO_REQUEST,
+  SEARCHED_VIDEO_SUCCESS,
   SELECTED_VIDEO_FAIL,
   SELECTED_VIDEO_REQUEST,
   SELECTED_VIDEO_SUCCESS,
 } from 'redux/actions/types';
 
-const mainInitialState = {
+const videosInitialState = {
   videos: [],
   loading: false,
+};
+
+const mainInitialState = {
+  ...videosInitialState,
   nextPageToken: null,
   activeCategory: 'All',
 };
 
 const watchInitialState = {
   video: null,
-  loading: false,
-};
-
-const relatedInitialState = {
-  videos: [],
   loading: false,
 };
 
@@ -85,7 +87,7 @@ export const watchVideoReducer = (state = watchInitialState, action) => {
   }
 };
 
-export const relatedVideoReducer = (state = relatedInitialState, action) => {
+export const relatedVideoReducer = (state = videosInitialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case RELATED_VIDEO_SUCCESS:
@@ -101,6 +103,31 @@ export const relatedVideoReducer = (state = relatedInitialState, action) => {
         error: payload,
       };
     case RELATED_VIDEO_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    default:
+      return state;
+  }
+};
+
+export const searchVideoReducer = (state = videosInitialState, action) => {
+  const { type, payload } = action;
+  switch (type) {
+    case SEARCHED_VIDEO_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        videos: payload,
+      };
+    case SEARCHED_VIDEO_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: payload,
+      };
+    case SEARCHED_VIDEO_REQUEST:
       return {
         ...state,
         loading: true,
