@@ -2,8 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useReqVideo } from 'hooks';
 import { getVideoInfo } from 'utils/getVideoInfo';
+import './_videohorizon.scss';
 
-export const RelatedVideo = ({ video }) => {
+export const VideoHorizon = ({ video, type }) => {
   const { title, channelTitle, thumbnail, publishedDay } = getVideoInfo(video);
   const { videoId, videoDuration, videoViews } = useReqVideo(video);
 
@@ -14,12 +15,12 @@ export const RelatedVideo = ({ video }) => {
   };
 
   return (
-    <li className='related_video' onClick={handleVideoClick}>
-      <div className='related_video__thumbnail'>
+    <li className='video_h' onClick={handleVideoClick}>
+      <div className='video_h__thumbnail'>
         <img src={thumbnail} alt='thumbnail' />
         <span className='duration'>{videoDuration}</span>
       </div>
-      <div className='related_video__info'>
+      <div className='video_h__info'>
         <p className='title'>{title}</p>
         <p className='channel'>{channelTitle}</p>
         <p className='details'>

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRelatedVideo } from 'redux/actions';
-import { RelatedVideo } from './RelatedVideo';
+import { VideoHorizon } from 'components';
 import './_relatedVideo.scss';
 
 export const RelatedVideoList = ({ id }) => {
@@ -12,10 +12,11 @@ export const RelatedVideoList = ({ id }) => {
     dispatch(getRelatedVideo(id));
   }, [dispatch, id]);
 
-  console.log(videos);
   return (
     <ul className='related_video_list'>
-      {videos.map((video, i) => video.snippet && <RelatedVideo key={i} video={video} />)}
+      {videos?.map(
+        (video, i) => video.snippet && <VideoHorizon key={i} video={video} type='related' />
+      )}
     </ul>
   );
 };
