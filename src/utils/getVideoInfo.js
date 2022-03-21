@@ -18,9 +18,9 @@ export const getVideoInfo = (video) => {
   if (video.statistics) {
     const { viewCount, likeCount, dislikeCount } = video.statistics;
 
-    videoInfo.views = numeral(viewCount).format('0.a');
-    videoInfo.likes = numeral(likeCount).format('0.a');
-    videoInfo.dislikes = numeral(dislikeCount).format('0.a');
+    videoInfo.views = numeral(viewCount).format('0.a').toLocaleUpperCase();
+    videoInfo.likes = numeral(likeCount).format('0.a').toLocaleUpperCase();
+    videoInfo.dislikes = numeral(dislikeCount).format('0.a').toLocaleUpperCase();
   }
 
   return videoInfo;

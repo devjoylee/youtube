@@ -15,7 +15,6 @@ export const SearchPage = () => {
 
   return (
     <Container className='search_page'>
-      <h1>Search {query}...</h1>
       <SearchVideoList videos={videos} />
     </Container>
   );

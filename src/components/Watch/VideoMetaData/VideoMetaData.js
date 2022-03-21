@@ -15,7 +15,7 @@ export const VideoMetaData = ({ id, video }) => {
   // channel Info
   const { snippet, statistics } = useSelector((state) => state.channelInfo.channel);
   const channelIcon = snippet?.thumbnails?.default?.url;
-  const subscribeCount = numeral(statistics?.subscriberCount).format('0.a');
+  const subscribeCount = numeral(statistics?.subscriberCount).format('0.a').toLocaleUpperCase();
 
   // subscription Status
   const isSubscribed = useSelector((state) => state.channelInfo.isSubscribed);
@@ -31,7 +31,7 @@ export const VideoMetaData = ({ id, video }) => {
         <h3>{title}</h3>
         <div className='info_bar'>
           <span>
-            {views} Views • {publishedDay}
+            {views} views • {publishedDay}
           </span>
           <ul className='like_btns'>
             <li className='like'>
@@ -49,7 +49,7 @@ export const VideoMetaData = ({ id, video }) => {
           <img src={channelIcon} alt='' />
           <div className='channel_name'>
             <p>{channelTitle}</p>
-            <p> {subscribeCount} Subscribers</p>
+            <p> {subscribeCount} subscribers</p>
           </div>
         </div>
         <button className={`subscribe_btn ${isSubscribed && 'subscribed'}`}>

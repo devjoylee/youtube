@@ -4,4 +4,12 @@
 .related_video_list {
   margin-left: 20px;
   flex-basis: 30%;
+
+  .video_h {
+    padding: 15px 0;
+    &__thumbnail {
+      width: 150px;
+      height: 90px;
+    }
+  }
 }

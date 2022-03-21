@@ -29,7 +29,7 @@ export const Video = ({ video }) => {
         <span>{publishedDay}</span>
       </div>
       <div className='video__channel'>
-        <img src={channelIcon?.url} alt={channelTitle} />
+        <img src={channelIcon} alt={channelTitle} />
         <p>{channelTitle}</p>
       </div>
     </div>
