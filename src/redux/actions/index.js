@@ -1,5 +1,5 @@
 export { login, logout } from './auth.action';
-export { getChannelInfo, subscriptionStatus } from './channel.action';
+export { getChannelInfo, subscriptionStatus, getMySubscriptions } from './channel.action';
 export { getCommentsById, addComment } from './comment.action';
 export {
   getPopularVideos,

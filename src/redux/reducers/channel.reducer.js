@@ -1,12 +1,25 @@
-import { CHANNEL_INFO_FAIL, CHANNEL_INFO_REQUEST, CHANNEL_INFO_SUCCESS, SET_SUBSCRIPTION_STATUS } from 'redux/actions/types';
+import {
+  CHANNEL_INFO_FAIL,
+  CHANNEL_INFO_REQUEST,
+  CHANNEL_INFO_SUCCESS,
+  SUBSCRIPTION_LIST_REQUEST,
+  SUBSCRIPTION_LIST_SUCCESS,
+  SUBSCRIPTION_LIST_FAIL,
+  SET_SUBSCRIPTION_STATUS,
+} from 'redux/actions/types';
 
-const initialState = {
+const channelInitialState = {
   channel: {},
   loading: false,
   isSubscribed: false,
 };
 
-export const channelReducer = (state = initialState, action) => {
+const subscInitialState = {
+  subscriptions: [],
+  loading: false,
+};
+
+export const channelReducer = (state = channelInitialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -32,6 +45,32 @@ export const channelReducer = (state = initialState, action) => {
       return {
         ...state,
         isSubscribed: payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const subscriptionReducer = (state = subscInitialState, action) => {
+  const { type, payload } = action;
+
+  switch (type) {
+    case SUBSCRIPTION_LIST_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case SUBSCRIPTION_LIST_SUCCESS:
+      return {
+        ...state,
+        subscriptions: payload,
+        loading: false,
+      };
+    case SUBSCRIPTION_LIST_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: payload,
       };
     default:
       return state;

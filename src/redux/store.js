@@ -9,6 +9,7 @@ import {
   watchVideoReducer,
   relatedVideoReducer,
   searchVideoReducer,
+  subscriptionReducer,
 } from './reducers';
 
 const rootReducer = combineReducers({
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   commentList: commentReducer,
   relatedVideo: relatedVideoReducer,
   searchVideo: searchVideoReducer,
+  subscriptionList: subscriptionReducer,
 });
 
 const store = createStore(rootReducer, {}, composeWithDevTools(applyMiddleware(thunk)));
