@@ -12,7 +12,7 @@ export const Comment = ({ item }) => {
         <p className='user'>
           {authorDisplayName} • {moment(publishedAt).fromNow()}
         </p>
-        <p className='text'>{textDisplay}</p>
+        <p className='text' dangerouslySetInnerHTML={{ __html: textDisplay }}></p>
       </div>
     </li>
   );

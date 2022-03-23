@@ -12,7 +12,7 @@ export const SubscriptionPage = () => {
   }, [dispatch]);
 
   return (
-    <Container>
+    <Container className='subscr_page'>
       <SubscriptionList subscriptions={subscriptions} />
     </Container>
   );

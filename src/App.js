@@ -22,7 +22,7 @@ export const App = () => {
         <Route index element={<MainPage />} />
         <Route path='watch/:id' element={<WatchPage />} />
         <Route path='search/:query' element={<SearchPage />} />
-        <Route path='subscription' element={<SubscriptionPage />} />
+        <Route path='feed/subscriptions' element={<SubscriptionPage />} />
       </Route>
       <Route path='/auth' element={<LoginPage />} />
     </Routes>

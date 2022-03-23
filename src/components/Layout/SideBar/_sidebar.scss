@@ -14,12 +14,14 @@
   top: $header-height;
   left: 0;
 
-  li {
-    display: flex;
-    align-items: center;
-    padding: 0.6rem 1.5rem;
-    cursor: pointer;
-
+  .sidebar_menu {
+    & > a,
+    &.logout {
+      display: flex;
+      align-items: center;
+      padding: 0.6rem 1.5rem;
+      cursor: pointer;
+    }
     span {
       margin-left: 1rem;
       font-size: 14px;
