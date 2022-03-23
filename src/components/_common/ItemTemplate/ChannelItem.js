@@ -3,9 +3,11 @@ import { useReqChannel } from 'hooks';
 import { getVideoInfo } from 'utils/getVideoInfo';
 import './_item.scss';
 
-export const ChannelItem = ({ item }) => {
-  const { channelTitle, thumbnail, description, channelId } = getVideoInfo(item);
-  const { subscribers, videoCount } = useReqChannel(channelId);
+export const ChannelItem = ({ item, type }) => {
+  const { title, thumbnail, description, channelId } = getVideoInfo(item);
+
+  const id = type === 'subscription' ? item.snippet.resourceId.channelId : channelId;
+  const { subscribers, videoCount } = useReqChannel(id);
 
   return (
     <>
@@ -13,7 +15,7 @@ export const ChannelItem = ({ item }) => {
         <img src={thumbnail} alt='thumbnail' />
       </div>
       <div className='item__info align_center'>
-        <p className='title'>{channelTitle}</p>
+        <p className='title'>{title}</p>
         <p className='details'>
           {subscribers} subscribers • {videoCount} videos
         </p>

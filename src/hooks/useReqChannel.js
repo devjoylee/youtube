@@ -24,7 +24,7 @@ export const useReqChannel = (channelId) => {
         channelIcon: items[0].snippet.thumbnails.default.url,
         videoCount: items[0].statistics.videoCount,
         subscribers: numeral(items[0].statistics.subscriberCount)
-          .format('0.00a')
+          .format('0.a')
           .toLocaleUpperCase(),
       });
     };

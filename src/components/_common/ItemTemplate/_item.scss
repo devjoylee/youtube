@@ -57,5 +57,16 @@
       letter-spacing: 0.1px;
       @include line-clamp(1);
     }
+    .description {
+      @include line-clamp(4);
+    }
+  }
+}
+
+@include responsive('small') {
+  .item {
+    .description {
+      @include line-clamp(2);
+    }
   }
 }

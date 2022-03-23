@@ -17,3 +17,6 @@ export { RelatedVideoList } from './Watch/RelatedVideo/RelatedVideoList';
 
 // search page
 export { SearchVideoList } from './Search/SearchVideoList/SearchVideoList';
+
+// subscription page
+export { SubscriptionList } from './Subscription/SubscriptionList/SubscriptionList';

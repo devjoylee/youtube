@@ -1,12 +1,11 @@
-import { Container } from 'components';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMySubscriptions } from 'redux/actions';
+import { Container, SubscriptionList } from 'components';
 
 export const SubscriptionPage = () => {
   const dispatch = useDispatch();
   const { subscriptions } = useSelector((state) => state.subscriptionList);
-  console.log(subscriptions);
 
   useEffect(() => {
     dispatch(getMySubscriptions());
@@ -14,8 +13,7 @@ export const SubscriptionPage = () => {
 
   return (
     <Container>
-      {/* {subscriptions.map((subscription, i) => {
-      })} */}
+      <SubscriptionList subscriptions={subscriptions} />
     </Container>
   );
 };
