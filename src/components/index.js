@@ -3,7 +3,7 @@ export { Layout } from './Layout/Layout';
 export { Container } from './Layout/Container';
 
 // common
-export { VideoHorizon } from './_common/VideoHorizon/VideoHorizon';
+export { ItemTemplate } from './_common/ItemTemplate/ItemTemplate';
 
 // main page
 export { Category } from './Main/Category/Category';

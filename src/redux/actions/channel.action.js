@@ -64,7 +64,7 @@ export const getMySubscriptions = () => async (dispatch, getState) => {
     });
     const { data } = await getData('/subscriptions', {
       params: {
-        part: 'snippet',
+        part: 'snippet, contentDetails',
         mine: true,
       },
       headers: {

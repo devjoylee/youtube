@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRelatedVideo } from 'redux/actions';
-import { VideoHorizon } from 'components';
+import { ItemTemplate } from 'components';
 import './_relatedVideo.scss';
 
 export const RelatedVideoList = ({ id }) => {
@@ -15,7 +15,7 @@ export const RelatedVideoList = ({ id }) => {
   return (
     <ul className='related_video_list'>
       {videos?.map(
-        (video, i) => video.snippet && <VideoHorizon key={i} video={video} type='related' />
+        (video, i) => video.snippet && <ItemTemplate key={i} item={video} type='related' />
       )}
     </ul>
   );
