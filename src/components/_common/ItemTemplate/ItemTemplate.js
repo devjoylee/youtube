@@ -5,13 +5,19 @@ import { ChannelItem } from './ChannelItem';
 import './_item.scss';
 
 export const ItemTemplate = ({ item, type }) => {
-  const itemId = item.id?.videoId || item.id?.channelId || item.id;
   const itemType = item.id.kind === 'youtube#video' ? 'video' : 'channel';
+  const videoId = item.id?.videoId || item.id;
+  const channelId = item.id?.channelId || item.snippet?.resourceId.channelId;
 
   const navigate = useNavigate();
 
   const handleItemClick = () => {
-    navigate(`/watch/${itemId}`);
+    if (itemType === 'video') {
+      navigate(`/watch/${videoId}`);
+    } else if (itemType === 'channel') {
+      console.log(item);
+      navigate(`/channel/${channelId}`);
+    }
   };
 
   return (

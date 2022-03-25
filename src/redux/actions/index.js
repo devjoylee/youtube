@@ -7,4 +7,5 @@ export {
   getVideoById,
   getRelatedVideo,
   getVideosBySearch,
+  getVideosByChannel,
 } from './video.action';

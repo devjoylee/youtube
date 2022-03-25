@@ -11,6 +11,9 @@ import {
   SELECTED_VIDEO_FAIL,
   SELECTED_VIDEO_REQUEST,
   SELECTED_VIDEO_SUCCESS,
+  CHANNEL_VIDEO_FAIL,
+  CHANNEL_VIDEO_REQUEST,
+  CHANNEL_VIDEO_SUCCESS,
 } from 'redux/actions/types';
 
 const videosInitialState = {
@@ -128,6 +131,31 @@ export const searchVideoReducer = (state = videosInitialState, action) => {
         error: payload,
       };
     case SEARCHED_VIDEO_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    default:
+      return state;
+  }
+};
+
+export const channelVideoReducer = (state = videosInitialState, action) => {
+  const { type, payload } = action;
+  switch (type) {
+    case CHANNEL_VIDEO_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        videos: payload,
+      };
+    case CHANNEL_VIDEO_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: payload,
+      };
+    case CHANNEL_VIDEO_REQUEST:
       return {
         ...state,
         loading: true,

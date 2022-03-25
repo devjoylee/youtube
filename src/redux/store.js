@@ -10,6 +10,7 @@ import {
   relatedVideoReducer,
   searchVideoReducer,
   subscriptionReducer,
+  channelVideoReducer,
 } from './reducers';
 
 const rootReducer = combineReducers({
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   relatedVideo: relatedVideoReducer,
   searchVideo: searchVideoReducer,
   subscriptionList: subscriptionReducer,
+  channelVideo: channelVideoReducer,
 });
 
 const store = createStore(rootReducer, {}, composeWithDevTools(applyMiddleware(thunk)));

@@ -6,4 +6,5 @@ export {
   watchVideoReducer,
   relatedVideoReducer,
   searchVideoReducer,
+  channelVideoReducer,
 } from './video.reducer';

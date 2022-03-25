@@ -12,6 +12,9 @@ import {
   SELECTED_VIDEO_FAIL,
   SELECTED_VIDEO_REQUEST,
   SELECTED_VIDEO_SUCCESS,
+  CHANNEL_VIDEO_FAIL,
+  CHANNEL_VIDEO_REQUEST,
+  CHANNEL_VIDEO_SUCCESS,
 } from './types';
 
 export const getPopularVideos = () => async (dispatch, getState) => {
@@ -158,6 +161,46 @@ export const getVideosBySearch = (keyword) => async (dispatch) => {
     dispatch({
       type: SEARCHED_VIDEO_FAIL,
       payload: error.message,
+    });
+  }
+};
+
+export const getVideosByChannel = (id) => async (dispatch) => {
+  try {
+    dispatch({
+      type: CHANNEL_VIDEO_REQUEST,
+    });
+
+    // 1. get upload playlist id
+    const {
+      data: { items },
+    } = await getData('/channels', {
+      params: {
+        part: 'contentDetails',
+        id: id,
+      },
+    });
+
+    const playlistId = items[0].contentDetails.relatedPlaylists.uploads;
+
+    // 2. get videos of channel using id
+    const { data } = await getData('/playlistItems', {
+      params: {
+        part: 'contentDetails,snippet',
+        playlistId: playlistId,
+        maxResults: 30,
+      },
+    });
+
+    dispatch({
+      type: CHANNEL_VIDEO_SUCCESS,
+      payload: data.items,
+    });
+  } catch (error) {
+    console.log(error.response.data.error.message);
+    dispatch({
+      type: CHANNEL_VIDEO_FAIL,
+      payload: error.response.data.error.message,
     });
   }
 };

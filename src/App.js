@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import 'styles/app.scss';
 import { Layout } from 'components';
-import { MainPage, LoginPage, WatchPage, SearchPage, SubscriptionPage } from 'pages';
+import { MainPage, LoginPage, WatchPage, SearchPage, SubscriptionPage, ChannelPage } from 'pages';
 import { useSelector } from 'react-redux';
 
 export const App = () => {
@@ -23,6 +23,7 @@ export const App = () => {
         <Route path='watch/:id' element={<WatchPage />} />
         <Route path='search/:query' element={<SearchPage />} />
         <Route path='feed/subscriptions' element={<SubscriptionPage />} />
+        <Route path='channel/:channelId' element={<ChannelPage />} />
       </Route>
       <Route path='/auth' element={<LoginPage />} />
     </Routes>
