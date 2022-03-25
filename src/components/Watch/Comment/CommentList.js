@@ -32,13 +32,24 @@ export const CommentList = ({ videoId, video }) => {
     <div className='comments'>
       <p className='comments__total'>{commentCount} Comments</p>
       <div className='comments__form'>
-        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUW0u5Eiiy3oM6wcpeEE6sXCzlh8G-tX1_Iw&usqp=CAU' alt='' />
+        <img
+          src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUW0u5Eiiy3oM6wcpeEE6sXCzlh8G-tX1_Iw&usqp=CAU'
+          alt=''
+        />
         <form onSubmit={handleComment}>
-          <input type='text' value={text} onChange={handleChange} placeholder='Write a comment...' />
+          <input
+            type='text'
+            value={text}
+            onChange={handleChange}
+            placeholder='Write a comment...'
+          />
           <button>Comment</button>
         </form>
       </div>
-      <ul className='comments__list'>{commentList !== undefined && commentList.map((item, i) => <Comment key={i} item={item} />)}</ul>
+      <ul className='comments__list'>
+        {commentList !== undefined &&
+          commentList.map((item, i) => <Comment key={i} item={item} />)}
+      </ul>
     </div>
   );
 };

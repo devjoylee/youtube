@@ -5,7 +5,7 @@ import { MdThumbUp, MdThumbDown } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { subscriptionStatus, getChannelInfo } from 'redux/actions';
 import { getVideoInfo } from 'utils/getVideoInfo';
-import { SubscribeButton } from 'components';
+import { SubscribeButton, HelmetTitle } from 'components';
 
 export const VideoMetaData = ({ video }) => {
   const dispatch = useDispatch();
@@ -25,6 +25,7 @@ export const VideoMetaData = ({ video }) => {
 
   return (
     <div className='metadata'>
+      <HelmetTitle title={title} description={description} />
       <div className='metadata__top'>
         <h3>{title}</h3>
         <div className='info_bar'>
