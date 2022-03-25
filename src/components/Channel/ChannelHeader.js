@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getChannelInfo } from 'utils/getChannelInfo';
+import { SubscribeButton } from 'components';
 import './_channel.scss';
 
 export const ChannelHeader = () => {
@@ -14,6 +15,7 @@ export const ChannelHeader = () => {
         <h3>{title}</h3>
         <span>{subscribers} subscribers</span>
       </div>
+      <SubscribeButton />
     </div>
   );
 };

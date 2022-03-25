@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getChannelInfo, getVideosByChannel } from 'redux/actions';
+import { getChannelInfo, getVideosByChannel, subscriptionStatus } from 'redux/actions';
 import { Container, ChannelHeader, ChannelPlayList } from 'components';
 
 export const ChannelPage = () => {
@@ -11,6 +11,7 @@ export const ChannelPage = () => {
   useEffect(() => {
     dispatch(getVideosByChannel(channelId));
     dispatch(getChannelInfo(channelId));
+    dispatch(subscriptionStatus(channelId));
   }, [dispatch, channelId]);
 
   return (

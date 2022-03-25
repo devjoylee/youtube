@@ -4,6 +4,7 @@ export { Container } from './Layout/Container';
 
 // common
 export { ItemTemplate } from './_common/ItemTemplate/ItemTemplate';
+export { SubscribeButton } from './_common/SubscribeButton/SubscribeButton';
 
 // main page
 export { Category } from './Main/Category/Category';
