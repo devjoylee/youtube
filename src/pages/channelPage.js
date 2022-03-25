@@ -1,18 +1,22 @@
-import { Container } from 'components';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getVideosByChannel } from 'redux/actions';
+import { getChannelInfo, getVideosByChannel } from 'redux/actions';
+import { Container, ChannelHeader, ChannelPlayList } from 'components';
 
 export const ChannelPage = () => {
   const dispatch = useDispatch();
   const { channelId } = useParams();
-  const { videos } = useSelector((state) => state.channelVideo);
-  console.log(videos);
 
   useEffect(() => {
     dispatch(getVideosByChannel(channelId));
+    dispatch(getChannelInfo(channelId));
   }, [dispatch, channelId]);
 
-  return <Container>channel page</Container>;
+  return (
+    <Container className='channel_page'>
+      <ChannelHeader />
+      <ChannelPlayList />
+    </Container>
+  );
 };

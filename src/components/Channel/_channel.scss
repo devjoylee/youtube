@@ -1,0 +1,25 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.channel_header {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid $border-color;
+
+  img {
+    @include circle-img(100px);
+    margin-right: 20px;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+    color: #fff;
+  }
+
+  span {
+    color: #aaa;
+  }
+}

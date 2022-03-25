@@ -8,6 +8,7 @@ export { ItemTemplate } from './_common/ItemTemplate/ItemTemplate';
 // main page
 export { Category } from './Main/Category/Category';
 export { VideoList } from './Main/Video/VideoList';
+export { Video } from './Main/Video/Video';
 
 // watch page
 export { VideoIframe } from './Watch/VideoIframe/VideoIframe';
@@ -20,3 +21,7 @@ export { SearchVideoList } from './Search/SearchVideoList/SearchVideoList';
 
 // subscription page
 export { SubscriptionList } from './Subscription/SubscriptionList/SubscriptionList';
+
+// channel page
+export { ChannelHeader } from './Channel/ChannelHeader';
+export { ChannelPlayList } from './Channel/ChannelPlayList';

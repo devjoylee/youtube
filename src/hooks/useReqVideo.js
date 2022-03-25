@@ -10,7 +10,7 @@ export const useReqVideo = (video) => {
   const seconds = moment.duration(duration).asSeconds();
   const videoDuration = moment.utc(seconds * 1000).format('mm:ss');
   const videoViews = numeral(views).format('0.a').toLocaleUpperCase();
-  const videoId = video.id?.videoId || video.id;
+  const videoId = video.id?.videoId || video.snippet?.resourceId?.videoId || video.id;
 
   useEffect(() => {
     const get_video_info = async () => {

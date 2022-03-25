@@ -9,6 +9,8 @@ export const Video = ({ video }) => {
   const { videoId, videoDuration, videoViews } = useReqVideo(video);
   const { channelIcon } = useReqChannel(channelId);
 
+  const isMain = video.kind === 'youtube#video';
+
   const navigate = useNavigate();
 
   const handleVideoClick = () => {
@@ -28,10 +30,12 @@ export const Video = ({ video }) => {
         </span>
         <span>{publishedDay}</span>
       </div>
-      <div className='video__channel'>
-        <img src={channelIcon} alt={channelTitle} />
-        <p>{channelTitle}</p>
-      </div>
+      {isMain && (
+        <div className='video__channel'>
+          <img src={channelIcon} alt={channelTitle} />
+          <p>{channelTitle}</p>
+        </div>
+      )}
     </div>
   );
 };
