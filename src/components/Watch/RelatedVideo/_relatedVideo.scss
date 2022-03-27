@@ -10,3 +10,9 @@
     height: 90px;
   }
 }
+
+@include responsive('small') {
+  .related_video_list {
+    margin-left: 0;
+  }
+}

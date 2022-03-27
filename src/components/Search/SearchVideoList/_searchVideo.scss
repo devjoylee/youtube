@@ -16,4 +16,32 @@
       }
     }
   }
+
+  @include responsive('small') {
+    .item {
+      &__thumbnail {
+        width: 160px;
+        height: 90px;
+      }
+      &__info {
+        .title {
+          font-size: 0.9rem;
+          @include line-clamp(2);
+        }
+        .channel {
+          padding: 0;
+          @include line-clamp(1);
+          img {
+            display: none;
+          }
+        }
+        .description {
+          display: none;
+        }
+        p + p {
+          margin-top: 2px;
+        }
+      }
+    }
+  }
 }

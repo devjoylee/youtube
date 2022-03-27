@@ -1,5 +1,6 @@
 @import './reset';
 @import './variables';
+@import './mixins';
 
 .page_contents {
   display: flex;
@@ -13,13 +14,13 @@
   overflow-x: hidden;
 }
 
-.login {
+.login_page {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 
-  &__container {
+  .login {
     background-color: $black-secondary;
     padding: 2rem;
     margin: 0 1rem;
@@ -51,5 +52,23 @@
 
   .watch_contents {
     flex-basis: 70%;
+  }
+}
+
+@include responsive('small') {
+  .container {
+    padding: 0 15px;
+  }
+
+  .login_page .login {
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .watch_page {
+    display: block;
   }
 }

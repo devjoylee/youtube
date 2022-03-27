@@ -13,17 +13,32 @@
     margin-right: 20px;
   }
 
-  h3 {
-    font-size: 1.6rem;
-    margin-bottom: 5px;
-    color: #fff;
-  }
+  .channel_details {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  span {
-    color: #aaa;
-  }
+    .title {
+      font-size: 1.6rem;
+      margin-bottom: 5px;
+      color: #fff;
+    }
 
-  button {
-    margin-left: auto;
+    .subscribers {
+      display: inline-block;
+      color: #aaa;
+    }
+  }
+}
+
+@include responsive('small') {
+  .channel_header {
+    .channel_details {
+      display: block;
+      button {
+        margin-top: 10px;
+      }
+    }
   }
 }

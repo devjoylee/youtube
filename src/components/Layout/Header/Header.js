@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export const Header = ({ handleToggle }) => {
-  const { photoURL } = useSelector((state) => state.auth?.user);
+  const { photoURL } = useSelector((state) => state.auth?.user) || { photoURL: '' };
 
   return (
     <header className='header'>

@@ -21,12 +21,12 @@ export const LoginPage = () => {
   }, [accessToken, navigate]);
 
   return (
-    <div className='login'>
-      <div className='login__container'>
+    <div className='login_page'>
+      <div className='login'>
         <h2>Youtube Clone</h2>
         <img src='https://pngimg.com/uploads/youtube/youtube_PNG2.png' alt='' />
         <button onClick={handleLogin}>Login With google</button>
-        <p>This Project is made using YOUTUBE DATA API</p>
+        <p>This Project is made using YOUTUBE API</p>
       </div>
     </div>
   );

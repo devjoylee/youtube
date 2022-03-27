@@ -65,8 +65,20 @@
 
 @include responsive('small') {
   .item {
-    .description {
-      @include line-clamp(2);
+    &__thumbnail {
+      margin-right: 15px;
+      &.rounded {
+        width: 110px;
+        height: 110px;
+        img {
+          width: 110px;
+        }
+      }
+    }
+    &__info {
+      .description {
+        @include line-clamp(2);
+      }
     }
   }
 }

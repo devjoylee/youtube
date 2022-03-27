@@ -10,12 +10,14 @@ export const ChannelHeader = () => {
 
   return (
     <div className='channel_header'>
-      <img src={thumbnail} alt='channel profile' />
+      <img className='channel_thumbnail' src={thumbnail} alt='channel profile' />
       <div className='channel_details'>
-        <h3>{title}</h3>
-        <span>{subscribers} subscribers</span>
+        <ul>
+          <li className='title'>{title}</li>
+          <li className='subscribers'>{subscribers} subscribers</li>
+        </ul>
+        <SubscribeButton />
       </div>
-      <SubscribeButton />
     </div>
   );
 };

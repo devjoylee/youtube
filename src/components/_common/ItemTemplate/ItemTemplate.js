@@ -20,7 +20,6 @@ export const ItemTemplate = ({ item, type }) => {
     if (itemType === 'video') {
       navigate(`/watch/${itemId}`);
     } else if (itemType === 'channel') {
-      console.log(item);
       navigate(`/channel/${itemId}`);
     }
   };
