@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+<!-- PROJECT LOGO -->
+<div align="center">
+  <img src="https://pngimg.com/uploads/youtube/youtube_PNG2.png" alt="Logo" width="80" height="55">
+  <h1>Youtube Clone Project</h1>
+  <p>
+    <a href="https://utube-page.web.app">배포 주소 바로가기</a>
+    ·
+    <a href="https://devjoylee.github.io">프로젝트 회고 바로가기</a>
+  </p>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- TABLE OF CONTENTS -->
+<details align="right">
+  <summary>Table of Contents</summary>
+    <div><a href="#프로젝트-소개">프로젝트 소개</a></div>
+    <div><a href="#기술-스택">기술 스택</a></div>
+    <div><a href="#과제-구현-목록">과제 구현 목록</a></div>
+    <div><a href="#CRA-구조">CRA 구조</a></div>
+    <div><a href="#커밋-컨벤션">커밋 컨벤션</a></div>
+</details>
 
-## Available Scripts
+## 프로젝트 소개
 
-In the project directory, you can run:
+> Firebase와 Youtube API를 활용한 Redux 기반의 Youtube 클론 프로젝트
+> <br/>
 
-### `npm start`
+## 사용 기술 및 스택
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<img src="https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=Redux&logoColor=white">&nbsp;&nbsp;<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">&nbsp;&nbsp;<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">&nbsp;&nbsp;<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white" style="display:">&nbsp;&nbsp;<img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">&nbsp;&nbsp;
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br/>
 
-### `npm test`
+## 과제 구현 목록
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## CRA 구조
 
-### `npm run build`
+## 커밋 컨벤션
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+commit 메세지에 깃모지를 추가하여 어떤 작업을 수행했는지 한 눈에 확인할 수 있도록 직관성을 높였습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| 깃모지 | 사용 예시               |
+| ------ | ----------------------- |
+| 🎉     | init                    |
+| 🚚     | 디렉토리 또는 파일 이동 |
+| ✨     | 기능 구현               |
+| 💄     | CSS 스타일링            |
+| ♻️     | 리팩토링                |
+| 📝     | Readme 수정             |
+| ➕     | 모듈 추가               |
+| 🐛     | 버그 해결               |
+| 🚑️    | 치명적인 오류 해결      |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+출처 : 깃모지(http://gitmoji.dev/)
 
-### `npm run eject`
+<br/>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="right">(<a href="#top">back to top</a>)</p>
