@@ -19,7 +19,7 @@ export const Video = ({ video }) => {
 
   return (
     <div className='video' onClick={handleVideoClick}>
-      <div className='video__top'>
+      <div className='video__preview'>
         <img src={thumbnail} alt='thumbnail' />
         <span>{videoDuration}</span>
       </div>

@@ -10,14 +10,15 @@
 .video {
   margin-bottom: 15px;
   padding: 0.7rem;
-
   font-weight: 500;
   font-size: 0.9rem;
   flex-basis: 25%;
 
-  cursor: pointer;
+  & > div {
+    cursor: pointer;
+  }
 
-  &__top {
+  &__preview {
     margin-bottom: 0.5rem;
     position: relative;
     img {

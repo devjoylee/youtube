@@ -1,17 +1,21 @@
 import React from 'react';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import { SkeletonElement } from './SkeletonElement';
 import './_skeleton.scss';
 
 export const SkeletonVideo = () => {
   return (
     <div className='skeleton-box video'>
-      <SkeletonTheme color='#343a40' highlightColor='#3c4147'>
-        <Skeleton height={180} />
-        <div>
-          <SkeletonTheme width={40} height={40} />
-          <SkeletonTheme width='75%' height={40} />
-        </div>
-      </SkeletonTheme>
+      <div className='video__preview'>
+        <SkeletonElement type='thumbnail' />
+      </div>
+      <div className='video__title'>
+        <SkeletonElement type='title' />
+        <SkeletonElement type='text' />
+      </div>
+      <div className='video__channel'>
+        <SkeletonElement type='profile' />
+        <SkeletonElement type='title' />
+      </div>
     </div>
   );
 };
