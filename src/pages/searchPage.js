@@ -1,21 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { getVideosBySearch } from 'redux/actions';
+import React from 'react';
 import { Container, SearchVideoList } from 'components';
 
 export const SearchPage = () => {
-  const { query } = useParams();
-  const dispatch = useDispatch();
-  const { videos } = useSelector((state) => state.searchVideo);
-
-  useEffect(() => {
-    dispatch(getVideosBySearch(query));
-  }, [dispatch, query]);
-
   return (
     <Container className='search_page'>
-      <SearchVideoList videos={videos} />
+      <SearchVideoList />
     </Container>
   );
 };

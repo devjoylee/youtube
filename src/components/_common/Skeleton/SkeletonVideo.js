@@ -6,7 +6,7 @@ export const SkeletonVideo = () => {
   return (
     <div className='skeleton-box video'>
       <div className='video__preview'>
-        <SkeletonElement type='thumbnail' />
+        <SkeletonElement type='thumbnail' h='150' />
       </div>
       <div className='video__title'>
         <SkeletonElement type='title' />
