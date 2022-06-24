@@ -25,6 +25,11 @@
     height: 12px;
   }
 
+  &.channel {
+    width: 50%;
+    height: 12px;
+  }
+
   &.profile {
     @include circle-img(36px);
     margin-right: 0.5rem;
@@ -32,6 +37,14 @@
   }
 }
 
+.skeleton-box.item {
+  .item__info div {
+    margin-bottom: 10px;
+  }
+  .thumbnail {
+    height: 100%;
+  }
+}
 .highlight {
   position: absolute;
   top: 0;

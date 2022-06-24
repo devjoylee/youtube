@@ -26,7 +26,7 @@ export const VideoList = ({ loadVideos }) => {
         hasMore={true}
         className='video-list'
       >
-        {!loading
+        {loading || !videos.length
           ? [...Array(20)].map((_, i) => <SkeletonVideo key={i} />)
           : videos.map((video, i) => <Video key={i} video={video} />)}
       </InfiniteScroll>

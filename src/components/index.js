@@ -7,6 +7,7 @@ export { ItemTemplate } from './_common/ItemTemplate/ItemTemplate';
 export { SubscribeButton } from './_common/SubscribeButton/SubscribeButton';
 export { HelmetTitle } from './_common/HelmetTitle';
 export { SkeletonVideo } from './_common/Skeleton/SkeletonVideo';
+export { SkeletonRelated } from './_common/Skeleton/SkeletonRelated';
 
 // main page
 export { Category } from './Main/Category/Category';
