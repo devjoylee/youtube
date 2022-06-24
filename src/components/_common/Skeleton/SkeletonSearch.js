@@ -12,7 +12,7 @@ export const SkeletonSearch = () => {
         <SkeletonElement type='title' w='500' />
         <SkeletonElement type='text' w='200' />
         <SkeletonElement type='text' w='200' />
-        <SkeletonElement type='desc' />
+        <SkeletonElement type='desc' h='22' />
       </div>
     </div>
   );

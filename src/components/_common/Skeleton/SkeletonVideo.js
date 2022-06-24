@@ -10,7 +10,7 @@ export const SkeletonVideo = () => {
       </div>
       <div className='video__title'>
         <SkeletonElement type='title' />
-        <SkeletonElement type='text' />
+        <SkeletonElement type='text' w='200' />
       </div>
       <div className='video__channel'>
         <SkeletonElement type='profile' />

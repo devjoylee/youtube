@@ -17,7 +17,7 @@ export const SearchVideoList = () => {
 
   return (
     <ul className='searched_video_list'>
-      {!loading || !videos.length
+      {loading || !videos.length
         ? [...Array(8)].map((_, i) => <SkeletonSearch key={i} />)
         : videos?.map((video, i) => <ItemTemplate key={i} item={video} type='search' />)}
     </ul>

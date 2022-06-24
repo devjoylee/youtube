@@ -15,7 +15,7 @@ export const RelatedVideoList = ({ id }) => {
 
   return (
     <ul className='related_video_list'>
-      {!loading || !videos.length
+      {loading || !videos.length
         ? [...Array(8)].map((_, i) => <SkeletonRelated key={i} />)
         : videos?.map(
             (video, i) => video.snippet && <ItemTemplate key={i} item={video} type='related' />
